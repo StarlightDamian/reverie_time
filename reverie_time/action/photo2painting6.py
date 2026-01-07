@@ -18,12 +18,12 @@
 """
 ps_actions.py
 Usage:
-    python photo2painting4.py --input "C:\path\to\input.jpg" --output "C:\path\to\output.jpg" [--resize-jsx "C:\path\to\resize_half.jsx|.jsxbin"]
+    python photo2painting4.py --input "C:\path\to\input.jpg" --output "C:\path\to\output.jpg" [--jsx_path "C:\path\to\resize_half.jsx|.jsxbin"]
 
 脚本特点：
 - 在 Python 中用 actions 列表组织 JSX 动作片段（按顺序执行）。
 - 默认的三个动作为：打开 INPUT_PATH -> 将宽高像素缩为 50% -> 根据输出后缀保存到 OUTPUT_PATH。
-- 现在支持通过 --resize-jsx 指定本地 jsx 或 jsxbin 文件替换中间的 resize 动作。
+- 现在支持通过 --jsx_path 指定本地 jsx 或 jsxbin 文件替换中间的 resize 动作。
 """
 import argparse
 import subprocess
@@ -195,7 +195,7 @@ if __name__ == "__main__":
     parser.add_argument("--input", default=r"D:\03_software_engineering\05_github\reverie_time\tests\data\20250621-DSC00663-已增强-降噪-4.jpg", help="输入图片路径")
     parser.add_argument("--output", default=r"D:\03_software_engineering\05_github\reverie_time\tests\output\1.jpg", help="输出图片路径（可选）")
     parser.add_argument("--photoshop", default=r"D:\03_software\adobe\photoshop\Adobe Photoshop 2023\Photoshop.exe", help="Photoshop.exe 路径")
-    parser.add_argument("--resize-jsx", default=r"D:\03_software_engineering\05_github\reverie_time\data\action\Real-Paint-FX.jsx", help="可选：用本地 jsx 或 jsxbin 文件替换默认的 resize_half_action（文本 jsx 可使用 __INPUT__ / __OUTPUT__ 占位）")
+    parser.add_argument("--jsx_path", default=r"D:\03_software_engineering\05_github\reverie_time\data\action\Real-Paint-FX.jsx", help="可选：用本地 jsx 或 jsxbin 文件替换默认的 resize_half_action（文本 jsx 可使用 __INPUT__ / __OUTPUT__ 占位）")
     args = parser.parse_args()
 
     input_path = Path(args.input).expanduser().resolve()
