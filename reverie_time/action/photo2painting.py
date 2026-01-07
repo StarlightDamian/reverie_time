@@ -3,7 +3,7 @@
 @Date: 2026/1/7 14:16
 @Author: Damian
 @Email: zengyuwei1995@163.com
-@File: photo2painting6.py
+@File: photo2painting.py
 @Description: 
 """
 # -*- coding: utf-8 -*-
@@ -189,6 +189,7 @@ def build_and_run_jsx(input_path: Path, output_path: Path, actions: list, photos
 
     # 提示用户临时文件位置（如需自动删除可以在 proc.wait() 后删除）
     print("If you want to remove the temporary jsx later:", temp_jsx)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Use Photoshop and an actions list to process an image.")
