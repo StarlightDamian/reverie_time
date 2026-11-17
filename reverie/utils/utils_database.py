@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Date: 2022/5/18 13:07
-@Author: Damian
+@Author: StarlightDamian
 @Email: zengyuwei1995@163.com
 @File: utils_database.py
 @Description: 连接数据库
@@ -68,7 +68,7 @@ class DatabaseConnection:
     
     def large_data_output_database(self, data_df, table_name):
         # 1. 添加时间戳
-        data_df['insert_timestamp'] = datetime.now().strftime("%F %T")
+        data_df['created_at'] = datetime.now().strftime("%F %T")
         
         # 2. 动态创建表的 SQL 语句
         create_table_sql = self._generate_create_table_sql(data_df, table_name)
@@ -184,7 +184,7 @@ FROM (
     SELECT 
         *,
         -- 按 (date, code) 分组，每组内按 create_time 倒序分配序号
-        ROW_NUMBER() OVER (PARTITION BY {', '.join(primary_key)} ORDER BY insert_timestamp DESC) AS rn
+        ROW_NUMBER() OVER (PARTITION BY {', '.join(primary_key)} ORDER BY created_at DESC) AS rn
     FROM {filename}
 ) t
 WHERE rn > 1; -- rn>1 即为重复行"""
@@ -201,7 +201,7 @@ def remove_duplicate_rows(filename, primary_key=('date', 'full_code')):
               FROM (
                 SELECT ctid,
                        ROW_NUMBER() OVER (PARTITION BY {', '.join(primary_key)}
-                                          ORDER BY insert_timestamp DESC NULLS LAST, ctid) AS rn
+                                          ORDER BY created_at DESC NULLS LAST, ctid) AS rn
                 FROM {filename}
               ) x
               WHERE x.rn > 1

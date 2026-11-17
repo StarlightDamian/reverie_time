@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Date: 2026/1/7 14:16
-@Author: Damian
+@Author: StarlightDamian
 @Email: zengyuwei1995@163.com
 @File: photo2painting.py
 @Description: 
@@ -13,6 +13,9 @@ import argparse
 import tempfile
 import subprocess
 from pathlib import Path
+
+# 允许 `python reverie/main.py` 直接运行：把项目根目录加入 sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from reverie.settings import PATH
 from reverie.utils import utils_data, utils_log, utils_database

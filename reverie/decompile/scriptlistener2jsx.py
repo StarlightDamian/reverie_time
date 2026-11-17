@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Date: 2026/1/12 15:55
-@Author: Damian
+@Author: StarlightDamian
 @Email: zengyuwei1995@163.com
 @File: scriptlistener2jsx.py
 @Description: 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Date: 2024/8/8 13:07
-@Author: Damian
+@Author: StarlightDamian
 @Email: zengyuwei1995@163.com
 @File: base_log.py
 @Description: 日志

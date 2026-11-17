@@ -1,0 +1,19 @@
+*.png
+*.jpg
+*.log
+Win_Scripting_Plug-In
+Real-Paint-FX-subject.jsx
+script.md
+
+# 本地运行和编辑器文件
+/venv/
+/log/
+__pycache__/
+/.idea/workspace.xml
+/reverie/settings.py
+
+# 在本地安装的 Photoshop 素材与工具
+/data/action/Real-Paint-FX-*.jsx
+/data/笔刷&材质/
+/data/decompile/ScriptListener.8li
+/data/decompile/jsxbin_to_jsx/
